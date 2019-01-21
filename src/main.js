@@ -1,24 +1,20 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import Vuex from 'vuex';
+//element ui 引入
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
+
 
 Vue.config.productionTip = false
+import './assets/base.css';
 
-Vue.use(Vuex);
-
-const store = new Vuex.Store({
-  state: {
-    count: 0
-  },
-  mutations: {
-    increment (state) {
-      state.count++
-    }
-  }
-})
+import store from './lib/store';
+import router from './lib/router';
 
 new Vue({
   render: h => h(App),
-  store
+  store,
+  router
 }).$mount('#app')
